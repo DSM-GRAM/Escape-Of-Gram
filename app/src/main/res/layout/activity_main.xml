@@ -6,7 +6,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:background="@color/colorPrimary"
-		tools:context=".ui.MainActivity">
+		tools:context=".ui.StoryActivity">
 	
 	<com.tails.gram.escapeofgram.ui.view.TextWriterView
 			android:id="@+id/story_tv"

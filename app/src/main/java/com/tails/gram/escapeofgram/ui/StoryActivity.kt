@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.tails.gram.escapeofgram.R
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), View.OnClickListener{
+class StoryActivity : AppCompatActivity(), View.OnClickListener{
 
     private var storyIndex = 0
     private val story = arrayListOf(
@@ -77,4 +77,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
             }
         }
     }
+
+    override fun onBackPressed() {}
 }
