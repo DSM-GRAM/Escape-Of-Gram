@@ -1,14 +1,13 @@
 package com.tails.gram.escapeofgram.ui.view
 
 import android.content.Context
-import android.os.Build
 import android.os.Handler
 import android.speech.tts.TextToSpeech
+import android.speech.tts.UtteranceProgressListener
 import android.util.AttributeSet
 import android.util.Log
-import android.view.View
-import android.widget.Button
 import android.widget.TextView
+import com.tails.gram.escapeofgram.ui.observe.IsSpokenObserver
 import java.util.*
 
 class TextWriterView : TextView, TextToSpeech.OnInitListener {
@@ -22,13 +21,12 @@ class TextWriterView : TextView, TextToSpeech.OnInitListener {
             text = mText.subSequence(0, mIndex++)
             if (mIndex <= mText.length) {
                 mHandler.postDelayed(this, mDelay)
-            }else{
-
             }
         }
     }
 
-    private lateinit var tts : TextToSpeech
+    val speakObserver = IsSpokenObserver()
+    private var tts = TextToSpeech(context, this)
 
     constructor(context: Context) : super(context)
 
@@ -39,9 +37,15 @@ class TextWriterView : TextView, TextToSpeech.OnInitListener {
         mIndex = 0
         text = ""
 
+        if(tts.isSpeaking) {
+            tts.stop()
+            speak(txt.toString())
+        }else{
+            speak(txt.toString())
+        }
+
         mHandler.removeCallbacks(characterAdder)
         mHandler.postDelayed(characterAdder, mDelay)
-        tts = TextToSpeech(context, this)
     }
 
     fun setWriteDelay(m: Long) {
@@ -50,35 +54,27 @@ class TextWriterView : TextView, TextToSpeech.OnInitListener {
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
-            val language = this.tts.setLanguage(Locale.KOREA)
+            val language = tts.setLanguage(Locale.KOREA)
             if (language == TextToSpeech.LANG_MISSING_DATA
                 || language == TextToSpeech.LANG_NOT_SUPPORTED) {
                 Log.e("ERROR!", "Language is not available.")
             }else{
+                tts.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
+                    override fun onStart(p0: String?) {}
+                    override fun onError(p0: String?) {}
+                    override fun onDone(p0: String?) {
+                        speakObserver.setState(true)
+                    }
+                })
+                tts.setPitch(0.05f)
+                tts.setSpeechRate(1.0f)
                 speak(mText.toString())
             }
         }
     }
 
     private fun speak(text: String) {
-        tts.setPitch(0.05f)
-        tts.setSpeechRate(1.0f)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            tts.speak(text.replace("\n", " "), TextToSpeech.QUEUE_FLUSH, null, null)
-        // API 20
-        else
-            tts.speak(text.replace("\n", " "), TextToSpeech.QUEUE_FLUSH, null)
-    }
-
-    class WrittenTextButton : Button{
-        constructor(context: Context) : super(context)
-
-        constructor(context: Context, attr: AttributeSet) : super(context, attr)
-
-        var isWritten = false
-            set(value) {
-                visibility = if(value) View.VISIBLE else View.GONE
-                field = value
-            }
+        tts.speak(text.replace("\n", " "), TextToSpeech.QUEUE_FLUSH, null, "Spoken")
+        speakObserver.setState(false)
     }
 }

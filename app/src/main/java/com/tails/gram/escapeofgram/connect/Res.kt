@@ -6,7 +6,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-abstract class Res<T>(val context : Context) : Callback<T>{
+abstract class Res<T>(private val context : Context) : Callback<T>{
 
     override fun onFailure(call: Call<T>, t: Throwable) {
         context.toast("오류 났어요.. ㅠㅠ")
