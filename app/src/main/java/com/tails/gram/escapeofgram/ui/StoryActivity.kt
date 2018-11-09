@@ -53,7 +53,6 @@ class StoryActivity : AppCompatActivity(), View.OnClickListener{
 
     override fun onClick(v : View){
         if(v.visibility  == View.VISIBLE) {
-            Log.e("qwer", "되지")
             when (v.id) {
                 R.id.next_so_btn -> {
                     if (storyIndex < 2) {
