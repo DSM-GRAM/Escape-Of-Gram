@@ -4,17 +4,18 @@ import android.content.Context
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
-import android.widget.Button
+import androidx.appcompat.widget.AppCompatButton
 import com.tails.gram.escapeofgram.ui.observe.IsSpokenObserver
 import org.jetbrains.anko.runOnUiThread
 import java.util.*
 
-class SpokenObserveButton : Button, Observer {
+class SpokenObserveButton : AppCompatButton, Observer {
     var observingEnabled = true
 
     constructor(context: Context) : super(context)
 
-    constructor(context: Context, attr: AttributeSet) : super(context, attr)
+    constructor(context: Context, atrs: AttributeSet) : super(context, atrs)
+
 
     init {
         visibility = View.INVISIBLE

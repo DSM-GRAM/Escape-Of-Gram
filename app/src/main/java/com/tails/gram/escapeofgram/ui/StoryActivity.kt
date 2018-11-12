@@ -1,10 +1,10 @@
 package com.tails.gram.escapeofgram.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.tails.gram.escapeofgram.R
+import com.tails.gram.escapeofgram.ui.dialog.YesNoDialog
 import kotlinx.android.synthetic.main.activity_main.*
 
 class StoryActivity : AppCompatActivity(), View.OnClickListener{
@@ -59,7 +59,9 @@ class StoryActivity : AppCompatActivity(), View.OnClickListener{
                         if (storyIndex == 0) previous_so_btn.setSubscribeTextWriter(story_tv)
                         story_tv.typingText(story[++storyIndex])
                     }else{
-                        // 게임 시작 액티비티
+                        val ynD = YesNoDialog()
+                        ynD.isCancelable = false
+                        ynD.show(supportFragmentManager, "YesNo")
                     }
                 }
                 R.id.previous_so_btn -> {

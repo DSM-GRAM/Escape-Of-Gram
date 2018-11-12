@@ -9,4 +9,12 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_up_ani</item>
+        <item name="android:windowExitAnimation">@anim/slide_down_ani</item>
+    </style>
+
+    <style name="DialogStyle">
+        <item name="android:windowIsFloating">true</item>
+    </style>
 </resources>
