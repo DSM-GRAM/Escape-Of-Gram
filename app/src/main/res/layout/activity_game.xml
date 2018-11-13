@@ -5,6 +5,83 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.GameActivity">
+        tools:context=".ui.GameActivity"
+        android:background="@color/colorPrimary">
+
+    <LinearLayout android:id="@+id/linearLayout"
+                  android:layout_width="413dp"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toBottomOf="@+id/give_up_btn"
+                  app:layout_constraintBottom_toTopOf="@+id/complete_btn">
+
+        <TextView android:id="@+id/textView"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="current time"
+                  android:fontFamily=""
+                  android:textColor="@color/colorPrimaryDark"
+                  android:textSize="42sp"
+                  android:gravity="center"/>
+
+        <TextView android:id="@+id/left_time_tv"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="00:00"
+                  android:fontFamily="@font/ds_digi"
+                  android:gravity="center"
+                  android:textSize="122sp"
+                  android:textColor="@color/colorPrimaryDark"/>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="horizontal"
+                      android:padding="55dp"
+                      android:gravity="center">
+
+            <ImageView android:id="@+id/first_life"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@drawable/paper_plane_white"/>
+
+            <ImageView android:id="@+id/second_life"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginStart="45dp"
+                       android:layout_marginEnd="45dp"
+                       android:src="@drawable/paper_plane_white"/>
+
+            <ImageView android:id="@+id/third_life"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:src="@drawable/paper_plane_white"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView android:id="@+id/complete_btn"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="COMPLETE"
+              android:textColor="@color/colorAccent"
+              android:textSize="52sp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintTop_toBottomOf="@id/linearLayout"/>
+
+    <TextView android:id="@+id/give_up_btn"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Give Up?"
+              android:textColor="@color/lowRed"
+              android:textSize="24sp"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              android:layout_marginTop="10dp"
+              app:layout_constraintTop_toTopOf="parent"
+              app:layout_constraintHorizontal_bias="1"
+              android:layout_marginEnd="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
