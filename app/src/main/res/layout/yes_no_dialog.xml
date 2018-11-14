@@ -5,13 +5,14 @@
               android:layout_weight="1"
               android:orientation="vertical">
 
-    <TextView android:layout_width="match_parent"
+    <TextView android:id="@+id/message_tv"
+              android:layout_width="match_parent"
               android:layout_height="0dp"
               android:layout_weight="0.1"
               android:text="시작 하시겠습니까?"
               android:gravity="center"
               android:background="@color/colorPrimary"
-              android:textColor="@color/colorPrimaryDark"
+              android:textColor="@color/lowRed"
               android:textSize="22sp"/>
 
     <LinearLayout android:layout_width="match_parent"

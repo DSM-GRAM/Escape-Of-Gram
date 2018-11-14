@@ -1,11 +1,13 @@
 package com.tails.gram.escapeofgram.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.tails.gram.escapeofgram.R
 import com.tails.gram.escapeofgram.ui.dialog.YesNoDialog
-import kotlinx.android.synthetic.main.activity_main.*
+import com.tails.gram.escapeofgram.util.Util
+import kotlinx.android.synthetic.main.activity_story.*
 
 class StoryActivity : AppCompatActivity(), View.OnClickListener{
 
@@ -41,7 +43,7 @@ class StoryActivity : AppCompatActivity(), View.OnClickListener{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_story)
 
         story_tv.setWriteDelay(125)
         story_tv.typingText(story[storyIndex])
@@ -59,9 +61,21 @@ class StoryActivity : AppCompatActivity(), View.OnClickListener{
                         if (storyIndex == 0) previous_so_btn.setSubscribeTextWriter(story_tv)
                         story_tv.typingText(story[++storyIndex])
                     }else{
-                        val ynD = YesNoDialog()
-                        ynD.isCancelable = false
-                        ynD.show(supportFragmentManager, "YesNo")
+                        YesNoDialog("시작 하시겠습니까?").apply {
+                            this.touchEvent = View.OnClickListener {
+                                when(it.id) {
+                                    R.id.no_btn -> {
+                                        Util.setYesNoDismiss(this.dialog)
+                                    }
+                                    R.id.yes_btn -> {
+                                        startActivity(Intent(applicationContext, GameActivity::class.java))
+                                        finish()
+                                    }
+                                }
+                            }
+                            this.isCancelable = false
+                            this.show(supportFragmentManager, "YesNo")
+                        }
                     }
                 }
                 R.id.previous_so_btn -> {

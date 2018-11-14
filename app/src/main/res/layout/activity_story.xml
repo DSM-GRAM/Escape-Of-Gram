@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="이전"
-            android:background="@color/colorPrimary"
+            android:background="@android:color/transparent"
             android:textColor="@color/colorPrimaryDark"
             android:fontFamily="@font/ds_digi"
             android:textSize="24sp"
