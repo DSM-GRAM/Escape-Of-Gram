@@ -41,22 +41,22 @@
                       android:padding="55dp"
                       android:gravity="center">
 
-            <ImageView android:id="@+id/first_life"
+            <ImageView android:id="@+id/first_hint"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
-                       android:src="@drawable/paper_plane_white"/>
+                       android:src="@drawable/paper_plane_black"/>
 
-            <ImageView android:id="@+id/second_life"
+            <ImageView android:id="@+id/second_hint"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
                        android:layout_marginStart="45dp"
                        android:layout_marginEnd="45dp"
-                       android:src="@drawable/paper_plane_white"/>
+                       android:src="@drawable/paper_plane_black"/>
 
-            <ImageView android:id="@+id/third_life"
+            <ImageView android:id="@+id/third_hint"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
-                       android:src="@drawable/paper_plane_white"/>
+                       android:src="@drawable/paper_plane_black"/>
         </LinearLayout>
     </LinearLayout>
 

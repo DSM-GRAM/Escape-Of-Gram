@@ -1,12 +1,15 @@
 package com.tails.gram.escapeofgram.ui.dialog
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.tails.gram.escapeofgram.R
+import com.tails.gram.escapeofgram.ui.CompleteActivity
+import com.tails.gram.escapeofgram.util.Util
 import kotlinx.android.synthetic.main.door_lock_dialog.*
 import org.jetbrains.anko.support.v4.toast
 
@@ -35,13 +38,27 @@ class DoorLockDialog : DialogFragment(), View.OnClickListener {
         inflater.inflate(R.layout.door_lock_dialog, container, false)
 
     private fun typeNum(n: Int) {
-        when (numCount) {
-            0 -> first_num.text = numArray[n]
-            1 -> second_num.text = numArray[n]
-            2 -> third_num.text = numArray[n]
-            3 -> fourth_num.text = numArray[n]
+        if (fourth_num.text == "  ") {
+            when (numCount) {
+                0 -> first_num.text = numArray[n]
+                1 -> second_num.text = numArray[n]
+                2 -> third_num.text = numArray[n]
+                3 -> fourth_num.text = numArray[n]
+            }
+            if (numCount < 3) numCount++
         }
-        if (numCount < 3) numCount++
+    }
+
+    private fun deleteNum() {
+        if (first_num.text != numArray[10]) {
+            when (numCount) {
+                0 -> first_num.text = numArray[10]
+                1 -> second_num.text = numArray[10]
+                2 -> third_num.text = numArray[10]
+                3 -> fourth_num.text = numArray[10]
+            }
+        }
+        if (numCount > 0) numCount--
     }
 
     private fun checkNum() {
@@ -51,25 +68,21 @@ class DoorLockDialog : DialogFragment(), View.OnClickListener {
             fourth_num.text != numArray[10]
         ) {
             val num = "${first_num.text}${second_num.text}${third_num.text}${fourth_num.text}"
-            if(num == "1234"){
-                toast("성공")
+            if (num == "1111") {
+                startActivity(Intent(context, CompleteActivity::class.java))
+                activity!!.finish()
+                toast("성공!")
+            }else{
+                Util.life
+                toast("실패...ㅜ")
+                dismiss()
             }
-        }else{
+        } else {
             toast("숫자 4글자를 입력하세요.")
         }
     }
 
-    private fun deleteNum() {
-        when (numCount) {
-            0 -> first_num.text = "  "
-            1 -> second_num.text = "  "
-            2 -> third_num.text = "  "
-            3 -> fourth_num.text = "  "
-        }
-        if (numCount > 0) numCount--
-    }
-
-    private fun setClickInit(){
+    private fun setClickInit() {
         one.setOnClickListener(this)
         two.setOnClickListener(this)
         three.setOnClickListener(this)

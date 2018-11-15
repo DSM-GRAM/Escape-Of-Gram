@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/colorPrimary"
+              android:padding="8dp">
+
+    <TextView android:id="@+id/rank_tv"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:text="1"
+              android:textSize="42sp"
+              android:textColor="@color/colorPrimaryDark"
+              android:layout_gravity="center"
+              android:gravity="center"
+              android:layout_weight="0.1"/>
+
+    <TextView android:id="@+id/rank_name_tv"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="0.7"
+              android:text="손승용"
+              android:layout_margin="6dp"
+              android:layout_gravity="center"
+              android:gravity="center"
+              android:textSize="22sp"
+              android:textColor="@color/colorPrimaryDark"/>
+
+    <TextView android:id="@+id/rank_time_tv"
+              android:layout_width="0dp"
+              android:layout_height="wrap_content"
+              android:layout_weight="0.2"
+              android:text="00:00"
+              android:layout_gravity="center"
+              android:gravity="center"
+              android:textSize="22sp"
+              android:textColor="@color/lowRed"/>
+</LinearLayout>
