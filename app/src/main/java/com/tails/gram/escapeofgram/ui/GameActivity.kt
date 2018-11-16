@@ -13,6 +13,7 @@ import com.tails.gram.escapeofgram.util.Util
 import kotlinx.android.synthetic.main.activity_game.*
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.support.v4.longToast
+import org.jetbrains.anko.toast
 import java.util.concurrent.TimeUnit
 
 class GameActivity : AppCompatActivity(), View.OnClickListener {
@@ -85,20 +86,23 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.first_hint->{
                 if(hintNum > -1) {
-                    first_hint.setImageResource(R.drawable.paper_plane_white)
-                    Util.showHindDialog(Util.story[0], supportFragmentManager)
+/*                    first_hint.setImageResource(R.drawable.paper_plane_white)
+                    Util.showHindDialog(Util.hint[0], supportFragmentManager)*/
+                    longToast(Util.hint[0])
                 }
             }
             R.id.second_hint->{
                 if(hintNum > 0) {
-                    second_hint.setImageResource(R.drawable.paper_plane_white)
-                    Util.showHindDialog(Util.story[1], supportFragmentManager)
+/*                    first_hint.setImageResource(R.drawable.paper_plane_white)
+                    Util.showHindDialog(Util.hint[0], supportFragmentManager)*/
+                    longToast(Util.hint[1])
                 }
             }
             R.id.third_hint->{
                 if(hintNum > 1) {
-                    third_hint.setImageResource(R.drawable.paper_plane_white)
-                    Util.showHindDialog(Util.story[2], supportFragmentManager)
+/*                    first_hint.setImageResource(R.drawable.paper_plane_white)
+                    Util.showHindDialog(Util.hint[0], supportFragmentManager)*/
+                    longToast(Util.hint[2])
                 }
             }
         }
