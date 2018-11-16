@@ -13,8 +13,6 @@ class CompleteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_complete)
 
-        RetrofitUtil.getRank(applicationContext)
-
         complete_time_tv.text = Util.timeFormatResult
         rank_btn.setOnClickListener {
             if(!rank_name_edit.text.isEmpty()){
