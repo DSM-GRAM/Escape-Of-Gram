@@ -73,7 +73,6 @@ class DoorLockDialog : DialogFragment(), View.OnClickListener {
                 activity!!.finish()
                 toast("성공!")
             }else{
-                Util.life
                 toast("실패...ㅜ")
                 dismiss()
             }

@@ -5,7 +5,6 @@ import androidx.fragment.app.FragmentManager
 import com.tails.gram.escapeofgram.ui.dialog.HintDialog
 
 object Util{
-    var life = 3
     var time = 600
     var timeFormatResult : String? = null
     val story = arrayOf(
@@ -37,7 +36,7 @@ object Util{
 10분안에 이곳을 탈출해야한다.
 """)
     val hint = arrayOf(
-        "책상 밑이 어둡니다.",  "나는 항상 비상연락망을 갖고있어요.", "요즘 커플이 참 많네요.")
+        "책상 밑이 어둡습니다.",  "나는 항상 비상연락망을 갖고있어요.", "요즘 커플이 참 많네요.")
 
     fun setYesNoDismiss(dialog : Dialog){
         dialog.dismiss()
