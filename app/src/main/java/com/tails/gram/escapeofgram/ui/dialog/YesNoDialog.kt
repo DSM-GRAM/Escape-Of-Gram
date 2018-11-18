@@ -17,7 +17,7 @@ class YesNoDialog(val message : String) : DialogFragment(){
     lateinit var touchEvent : View.OnClickListener
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        Dialog(activity!!, R.style.DialogStyle).apply {
+        Dialog(activity!!, R.style.DialogFullScreen).apply {
             window!!.attributes.windowAnimations = R.style.DialogAnimation
             mDialog = this
     }

@@ -17,7 +17,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitUtil{
-    private val URL = "http://13.59.116.83/"
+    private const val URL = "http://13.59.116.83/"
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(URL)
@@ -34,19 +34,25 @@ object RetrofitUtil{
                     body!!.reverse()
                     recycler.let {
                         it.layoutManager = LinearLayoutManager(context)
-                        it.adapter = RankAdapter(body!!).apply {
+                        it.adapter = RankAdapter(body).apply {
                             notifyDataSetChanged()
                         }
                     }
 
-                    var i = 0
-                    while(i < body!!.size){
-                        if(body[i].name == uName){
-                            rank.text = "${i + 1}"
-                            name.text = body[i].name
-                            time.text = body[i].time.subSequence(3, body[i].time.length)
+                    if(uName != "") {
+                        var i = 0
+                        while (i < body.size) {
+                            if (body[i].name == uName) {
+                                rank.text = "${i + 1}"
+                                name.text = body[i].name
+                                time.text = body[i].time.subSequence(3, body[i].time.length)
+                            }
+                            i++
                         }
-                        i++
+                    }else{
+                        rank.text = ""
+                        name.text = ""
+                        time.text = ""
                     }
                 }else{
                     Log.e("code", code.toString())

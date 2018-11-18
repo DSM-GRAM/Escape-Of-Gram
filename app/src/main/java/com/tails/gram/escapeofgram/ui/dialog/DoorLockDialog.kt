@@ -19,7 +19,7 @@ class DoorLockDialog : DialogFragment(), View.OnClickListener {
     private var numArray = arrayOf("1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "  ")
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        Dialog(activity!!, R.style.DialogStyle).apply {
+        Dialog(activity!!, R.style.DialogFullScreen).apply {
             window!!.attributes.windowAnimations = R.style.DialogAnimationReverse
             mDialog = this
         }

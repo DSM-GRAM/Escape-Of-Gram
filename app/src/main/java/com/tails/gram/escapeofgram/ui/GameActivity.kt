@@ -13,7 +13,6 @@ import com.tails.gram.escapeofgram.util.Util
 import kotlinx.android.synthetic.main.activity_game.*
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.support.v4.longToast
-import org.jetbrains.anko.toast
 import java.util.concurrent.TimeUnit
 
 class GameActivity : AppCompatActivity(), View.OnClickListener {
@@ -33,7 +32,7 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
                     TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) - TimeUnit.MINUTES.toSeconds(
                         TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished)))
                 left_time_tv.text = Util.timeFormatResult
-                if(Util.time % 90 == 0){
+                if(Util.time == 510 || Util.time == 420 || Util.time == 330){
                     if(hintNum < 3) {
                         hintNum++
                         when (hintNum) {
@@ -86,23 +85,23 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
             }
             R.id.first_hint->{
                 if(hintNum > -1) {
-/*                    first_hint.setImageResource(R.drawable.paper_plane_white)
-                    Util.showHindDialog(Util.hint[0], supportFragmentManager)*/
-                    longToast(Util.hint[0])
+                    first_hint.setImageResource(R.drawable.paper_plane_white)
+                    Util.showHindDialog(Util.hint[0], supportFragmentManager)
+//                    longToast(Util.hint[0])
                 }
             }
             R.id.second_hint->{
                 if(hintNum > 0) {
-/*                    first_hint.setImageResource(R.drawable.paper_plane_white)
-                    Util.showHindDialog(Util.hint[0], supportFragmentManager)*/
-                    longToast(Util.hint[1])
+                    first_hint.setImageResource(R.drawable.paper_plane_white)
+                    Util.showHindDialog(Util.hint[0], supportFragmentManager)
+//                    longToast(Util.hint[1])
                 }
             }
             R.id.third_hint->{
                 if(hintNum > 1) {
-/*                    first_hint.setImageResource(R.drawable.paper_plane_white)
-                    Util.showHindDialog(Util.hint[0], supportFragmentManager)*/
-                    longToast(Util.hint[2])
+                    first_hint.setImageResource(R.drawable.paper_plane_white)
+                    Util.showHindDialog(Util.hint[0], supportFragmentManager)
+//                    longToast(Util.hint[2])
                 }
             }
         }

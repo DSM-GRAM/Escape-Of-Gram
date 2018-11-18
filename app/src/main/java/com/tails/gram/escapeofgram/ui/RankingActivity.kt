@@ -13,6 +13,9 @@ class RankingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ranking)
 
-        RetrofitUtil.getRank(applicationContext, rank_recycler, intent.getStringExtra("name"), rank_name_tv, rank_tv, rank_time_tv)
+        if(intent.getBooleanExtra("isComplete", true))
+            RetrofitUtil.getRank(applicationContext, rank_recycler, intent.getStringExtra("name"), rank_name_tv, rank_tv, rank_time_tv)
+        else
+            RetrofitUtil.getRank(applicationContext, rank_recycler, "", rank_name_tv, rank_tv, rank_time_tv)
     }
 }
