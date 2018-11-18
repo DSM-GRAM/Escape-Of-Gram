@@ -87,21 +87,18 @@ class GameActivity : AppCompatActivity(), View.OnClickListener {
                 if(hintNum > -1) {
                     first_hint.setImageResource(R.drawable.paper_plane_white)
                     Util.showHindDialog(Util.hint[0], supportFragmentManager)
-//                    longToast(Util.hint[0])
                 }
             }
             R.id.second_hint->{
                 if(hintNum > 0) {
-                    first_hint.setImageResource(R.drawable.paper_plane_white)
-                    Util.showHindDialog(Util.hint[0], supportFragmentManager)
-//                    longToast(Util.hint[1])
+                    second_hint.setImageResource(R.drawable.paper_plane_white)
+                    Util.showHindDialog(Util.hint[1], supportFragmentManager)
                 }
             }
             R.id.third_hint->{
                 if(hintNum > 1) {
-                    first_hint.setImageResource(R.drawable.paper_plane_white)
-                    Util.showHindDialog(Util.hint[0], supportFragmentManager)
-//                    longToast(Util.hint[2])
+                    third_hint.setImageResource(R.drawable.paper_plane_white)
+                    Util.showHindDialog(Util.hint[2], supportFragmentManager)
                 }
             }
         }
